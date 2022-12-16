@@ -1,0 +1,23 @@
+{
+  "name": "@kamkam1_0/errorhandler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KamKam0/errorhandler.git"
+  },
+  "bugs": {
+    "url": "https://github.com/KamKam0/errorhandler/issues"
+  },
+  "keywords": ["Youtube", "Deezer", "Spotify", "Soundcloud", "Search"],
+  "homepage": "https://github.com/KamKam0/errorhandler",
+  "author": "KamKam <kamkam.dev.contact@gmail.com>",
+  "license": "BSD 2",
+  "dependencies": {
+    "fs": "^0.0.1-security"
+  }
+}

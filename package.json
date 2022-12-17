@@ -1,6 +1,6 @@
 {
   "name": "@kamkam1_0/errorhandler",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -13,7 +13,7 @@
   "bugs": {
     "url": "https://github.com/KamKam0/errorhandler/issues"
   },
-  "keywords": ["Youtube", "Deezer", "Spotify", "Soundcloud", "Search"],
+  "keywords": ["Errors", "Handler"],
   "homepage": "https://github.com/KamKam0/errorhandler",
   "author": "KamKam <kamkam.dev.contact@gmail.com>",
   "license": "BSD 2",

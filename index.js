@@ -1,4 +1,4 @@
-exports.version = "1.2.0"
+exports.version = require("./package.json").version
 exports.rejectionHandled = require("./rejectionHandled")
 exports.uncaughtException = require("./uncaughtException")
 exports.uncaughtExceptionMonitor = require("./uncaughtExceptionMonitor")

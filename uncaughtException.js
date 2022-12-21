@@ -6,7 +6,7 @@ module.exports = async (prog, err) =>{
 
     if((err.code === "ECONNRESET" && err.name === "Error"  && err.syscall === "read") || err.code === "PROTOCOL_CONNECTION_LOST") return
 
-    let check = require("./Utils/first_checks")(prog.name, err, true)
+    let check = require("./Utils/first_checks")()
     
     if(check) require("./Utils/treat_error")(prog, err, check, "uncaughtException")
 }

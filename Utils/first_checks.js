@@ -1,12 +1,5 @@
-module.exports = (err, state) => {
+module.exports = () => {
     let name = require("./get_name")()
-    
-    if(!state){
-
-        if((err.code === "ECONNREFUSED" && err.syscall === "connect" && !isNaN(err.errno)) || (err.code === "PROTOCOL_CONNECTION_LOST")) return false
-    
-        if(err.code === "ECONNRESET" && err.name === "Error"  && err.syscall === "read") return false
-    }
 
     const fs = require("fs")
 

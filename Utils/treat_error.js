@@ -1,7 +1,7 @@
 module.exports = (prog, err, number, type) => {
     let name = require("./get_name")()
     const fs = require("fs")
-
+    console.log(err)
     let minor_type = {
         uncaughtexceptionmonitor: "UEM",
         unhandledrejection: "UR",

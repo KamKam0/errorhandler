@@ -1,5 +1,5 @@
 # ErrorHandler
-ErrorHandler is simple to use module that allows you to handle several errors to prevent your programm from crashing
+ErrorHandler is simple to use module that allows you to handle several errors to prevent your program from crashing
 
 ## Installation
 ```js

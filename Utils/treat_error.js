@@ -1,4 +1,5 @@
 module.exports = (SendMessage, err, number, type) => {
+    if(!err || !number || !type) return
     let name = require("./get_name")()
     const fs = require("fs")
     console.log(err)

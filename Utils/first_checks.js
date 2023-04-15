@@ -1,7 +1,7 @@
 module.exports = () => {
     let name = require("./get_name")()
 
-    const fs = require("fs")
+    const fs = require("node:fs")
 
     let number;
 

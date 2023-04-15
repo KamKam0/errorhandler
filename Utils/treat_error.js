@@ -1,7 +1,7 @@
 module.exports = (SendMessage, err, number, type) => {
     if(!err || !number || !type) return
     let name = require("./get_name")()
-    const fs = require("fs")
+    const fs = require("node:fs")
     console.log(err)
     let minor_type = {
         uncaughtexceptionmonitor: "UEM",

@@ -1,7 +1,7 @@
-module.exports = () => {
-    let name = require("./get_name")()
+let name = require("./get_name")()
+const fs = require("node:fs")
 
-    const fs = require("node:fs")
+module.exports = () => {
 
     let number;
 
@@ -15,9 +15,9 @@ module.exports = () => {
         number = 0
     }
 
-    let count_db = require(`${process.cwd()}/${name}_Erreurs/db_errors.json`)
+    let acountFolder = require(`${process.cwd()}/${name}_Erreurs/db_errors.json`)
 
-    number = count_db.count
+    number = acountFolder.count
 
     if(Number(number) >= 100) {
         console.log('Too many errors, safety killswitch activated')
@@ -25,15 +25,15 @@ module.exports = () => {
     }
     
     number++
-    count_db.count = number
-    fs.writeFileSync(`${process.cwd()}/${name}_Erreurs/db_errors.json`, JSON.stringify(count_db, null, 4))
-    count_db[`error_${number}`] = Date.now()
-    fs.writeFileSync(`${process.cwd()}/${name}_Erreurs/db_errors.json`, JSON.stringify(count_db, null, 4))
+    acountFolder.count = number
+    fs.writeFileSync(`${process.cwd()}/${name}_Erreurs/db_errors.json`, JSON.stringify(acountFolder, null, 4))
+    acountFolder[`error_${number}`] = Date.now()
+    fs.writeFileSync(`${process.cwd()}/${name}_Erreurs/db_errors.json`, JSON.stringify(acountFolder, null, 4))
     
-    let errors = Object.entries(count_db).reverse()
+    let errors = Object.entries(acountFolder).reverse()
     
     if(errors.length > 7){
-        errors.splice(5, Object.entries(count_db).length - 6)
+        errors.splice(5, Object.entries(acountFolder).length - 6)
 
         errors.shift()
         errors = errors.filter(e => e[0].startsWith("error_")).map(e => (-(e[1] - Date.now()))/1000).sort((a,b) => b - a)

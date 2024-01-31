@@ -16,5 +16,8 @@
   "keywords": ["Errors", "Handler"],
   "homepage": "https://github.com/KamKam0/errorhandler",
   "author": "KamKam <kamkam.dev.contact@gmail.com>",
-  "license": "MPL 2.0"
+  "license": "MPL 2.0",
+  "engines": {
+    "node": ">=16"
+  }
 }

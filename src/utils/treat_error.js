@@ -15,18 +15,24 @@ if (os.platform() === 'win32') {
 
 let basePath = `${process.cwd()}${osSymbol}${name}_Erreurs${osSymbol}`
 
-module.exports = (functionCallback, err, number, type) => {
+module.exports = (err, logError, createFile, functionCallback, number, type) => {
     if(!err || !number || !type) return
-    console.log(err)
+    if (logError) {
+        console.log(err)
+    }
     let minorType = typeConverter[type.toLowerCase()]
     if(err.stack){
-        let c = err.stack.toString()
-        if(err.code) fs.writeFile(`${basePath}[error] - ${number} - ${err.code.toString()} - ${minorType}.txt`, (c), err=>{})
-        else fs.writeFile(`${basePath}[error] - ${number} - ${minorType}.txt`, (c), err=>{})
-        console.log(`Un rapport d'erreur a été émit - ${type} - Erreur n°${number}`)
+        let stringifiedStack = err.stack.toString()
+
+        if (createFile) {
+            if(err.code) fs.writeFile(`${basePath}[error] - ${number} - ${err.code.toString()} - ${minorType}.txt`, (stringifiedStack), err=>{})
+            else fs.writeFile(`${basePath}[error] - ${number} - ${minorType}.txt`, (stringifiedStack), err=>{})
+            console.log(`Un rapport d'erreur a été émit - ${type} - Erreur n°${number}`)
+        }
+
         if(functionCallback && typeof functionCallback === "function"){
             try{
-                functionCallback(c)
+                functionCallback(stringifiedStack)
             }catch(err){
                 console.log(err)
             }

@@ -47,3 +47,13 @@ process.on("rejectionHandled", err => ErrorHandler.rejectionHandled(sendingFunct
 //OR
 ErrorHandler.deploy(sendingFunction)
 ```
+
+### Other params
+You can choose to create a file for every error or not (default is true).
+You can also choose to log or not the error (default is true)
+```js
+const ErrorHandler = require("@kamkam1_0/errorhandler")
+process.on("rejectionHandled", err => ErrorHandler.rejectionHandled(error, logError, createFile, callbackFunction))
+//OR
+ErrorHandler.deploy(callbackFunction, logError, createFile)
+```

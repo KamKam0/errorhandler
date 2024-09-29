@@ -43,7 +43,7 @@ let sendingFunction = function(err){
     bot.users.get("YOUR ID").send(`An error happened: \`\`\`${err}\`\`\``)
 }
 const ErrorHandler = require("@kamkam1_0/errorhandler")
-process.on("rejectionHandled", err => ErrorHandler.rejectionHandled(sendingFunction, err))
+process.on("rejectionHandled", err => ErrorHandler.rejectionHandled(err, undefined, undefined, sendingFunction))
 //OR
 ErrorHandler.deploy(sendingFunction)
 ```

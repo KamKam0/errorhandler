@@ -20,24 +20,17 @@ module.exports = (err, logError, createFile, functionCallback, number, type) => 
     if (logError) {
         console.log(err)
     }
+
     let minorType = typeConverter[type.toLowerCase()]
-    if(err.stack){
-        let stringifiedStack = err.stack.toString()
+    let errorStringified = `Error name: ${err.name}\n\nError message: ${err.message}\n\nError stack: ${err.stack?.toString()}`
 
-        if (createFile) {
-            if(err.code) fs.writeFile(`${basePath}[error] - ${number} - ${err.code.toString()} - ${minorType}.txt`, (stringifiedStack), err=>{})
-            else fs.writeFile(`${basePath}[error] - ${number} - ${minorType}.txt`, (stringifiedStack), err=>{})
-            console.log(`Un rapport d'erreur a été émit - ${type} - Erreur n°${number}`)
-        }
+    if (createFile) {
+        if(err.code) fs.writeFile(`${basePath}[error] - ${number} - ${err.code.toString()} - ${minorType}.txt`, (errorStringified), err=>{})
+        else fs.writeFile(`${basePath}[error] - ${number} - ${minorType}.txt`, (errorStringified), err=>{})
+        console.log(`Un rapport d'erreur a été émit - ${type} - Erreur n°${number}`)
+    }
 
-        if(functionCallback && typeof functionCallback === "function"){
-            try{
-                functionCallback(stringifiedStack)
-            }catch(err){
-                console.log(err)
-            }
-        }
-    }else if(functionCallback && typeof functionCallback === "function"){
+    if(functionCallback && typeof functionCallback === "function"){
         try{
             functionCallback(err)
         }catch(err){
